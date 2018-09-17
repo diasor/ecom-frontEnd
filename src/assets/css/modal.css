@@ -1,0 +1,81 @@
+.modal-container {
+  display: none;
+}
+
+.modal-container.show {
+  display: block;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top:4rem;
+  left: 0;
+  right: 0;
+  background-color: #e6e9ea;
+  padding: 0;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  z-index:1000;
+  border-radius: 3px;
+
+  h1,h2,h3,h4 {
+    margin-top: 0;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+  .modal-close {
+    cursor: pointer;
+  }
+
+  .modal-footer {
+    border-radius: 0 0 2px 2px;
+    background-color: #e6e9ea;
+    padding: 0 1rem 1rem;
+    width: 100%;
+    display: inline-block;
+
+    .btn {
+      float: left;
+      margin: 0 3px;
+      min-width: 120px;
+    }
+  }
+}
+.lean-overlay {
+  position: fixed;
+  z-index:999;
+  top: -100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 125%;
+  width: 100%;
+  background: #000;
+  opacity: 0.4;
+}
+
+// Modal with fixed action footer
+.modal.modal-fixed-footer {
+  padding: 0;
+  height: 70%;
+
+  .modal-content {
+    position: absolute;
+    height: calc(100% - 56px);
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  .modal-footer {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding-top:1rem;
+    position: absolute;
+    bottom: 0;
+  }
+}
