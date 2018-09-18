@@ -4,20 +4,24 @@ import Home from '@/pages/Home';
 import Admin from '@/pages/Admin';
 import Cart from '@/pages/Cart';
 import Details from '@/pages/Details';
-import EditProduct from '@/pages/admin/EditProduct';
-import AddProduct from '@/pages/admin/AddProduct';
+import ProductForm from '@/pages/admin//ProductForm';
+import ManufacturerForm from '@/pages/admin//ManufacturerForm';
 import AdminProductList from '@/pages/admin/AdminProductList';
+import AdminManufacturersList from '@/pages/admin/AdminManufacturersList';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     { name: 'home', path: '/', component: Home },
-    { name: 'admine', path: '/admin', component: Admin },
-    { name: 'admin-create', path: '/admin-create', component: AddProduct },
+    { name: 'admin', path: '/admin', component: Admin },
     { name: 'admin-products', path: '/admin-products', component: AdminProductList },
-    { name: 'admin-edit', path: '/admin-edit/:id', component: EditProduct },
+    { name: 'admin-create-product', path: '/admin-create-product', component: ProductForm },
+    { name: 'admin-edit-product', path: '/admin-edit-product/:id', component: ProductForm },
+    { name: 'admin-manufacturers', path: '/admin-manufacturers', component: AdminManufacturersList },
+    { name: 'admin-create-manufacturer', path: '/admin-create-manufacturer/', component: ManufacturerForm },
+    { name: 'admin-edit-manufacturer', path: '/admin-edit-manufacturer/:id', component: ManufacturerForm },
     { name: 'cart', path: '/cart', component: Cart },
-    { name: 'Details', path: '/details/:id', component: Details },
+    { name: 'details', path: '/details/:id', component: Details },
   ],
 });

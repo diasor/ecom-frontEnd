@@ -44,9 +44,8 @@ const actions = {
   },
   // add a product
   addProduct ({ commit }, formData, headers) {
-    console.log('ADD PRODUCT ', formData);
     commit(mutationTypes.ADD_PRODUCT);
-    return productsStateApi.addProduct(formData, headers)
+    return productsStateApi.addUpdateProduct(formData, headers)
       .then(response => {
         commit(mutationTypes.ADD_PRODUCT_SUCCESS, response.data);
       })
@@ -54,9 +53,8 @@ const actions = {
   },
   // update product iformation
   updateProduct ({ commit }, product) {
-    console.log('UPDATE PRODUCT ', product);
     commit(mutationTypes.UPDATE_PRODUCT);
-    return productsStateApi.updateProduct(product)
+    return productsStateApi.addUpdateProduct(product)
       .then(response => {
         commit(mutationTypes.UPDATE_PRODUCT_SUCCESS, response.data);
       });
@@ -104,21 +102,12 @@ const mutations = {
   [mutationTypes.ADD_PRODUCT_SUCCESS] (state, product) {
     state.showLoader = false;
     state.products.push(product);
-    console.log('state.products ', state.products);
   },
   [mutationTypes.UPDATE_PRODUCT] () {
     state.showLoader = true;
   },
   [mutationTypes.UPDATE_PRODUCT_SUCCESS] (state, product) {
     state.showLoader = false;
-    console.log(product);
-    // state.products = state.products.map((item) => {
-    //   if (item._id === payload._id) {
-    //     payload = { ...payload, manufacturer: state.manufacturers.filter(x => x._id === payload.manufacturer)[0] };
-    //     return payload;
-    //   }
-    //   return item;
-    // });
     return product;
   },
   [mutationTypes.REMOVE_PRODUCT] () {
@@ -127,13 +116,10 @@ const mutations = {
   [mutationTypes.REMOVE_PRODUCT_SUCCESS] (payload) {
     state.showLoader = false;
     const index = state.products.findIndex(p => p._id === payload);
-    console.debug('index', index);
     state.products.splice(index, 1);
   },
   [mutationTypes.UPLOAD_IMAGE_SUCCESS] () {
     state.showLoader = false;
-    // const index = state.products.findIndex(p => p._id === payload);
-    // state.products.splice(index, 1);
   },
 };
 

@@ -13,18 +13,13 @@ export default {
   getProductById (id) {
     return axios.get(`${API_PRODUCTS}${id}`);
   },
-  addProduct (formData, headers) {
-    // return axios.post(``, formData, headers);
+  addUpdateProduct (formData, headers) {
     return axios({
       method: 'post',
       url: API_PRODUCTS,
       data: formData,
       config: headers,
     });
-  },
-  updateProduct (product) {
-    console.log('updateProduct en producsStateApi ', product);
-    return axios.put(`${API_PRODUCTS}${product._id}`, product);
   },
   removeProduct (id) {
     return axios.delete(`${API_PRODUCTS}${id}`);

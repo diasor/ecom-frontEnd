@@ -18,7 +18,7 @@
             <td>${{product.price}}</td>
             <td>{{product.manufacturer.name}}</td>
             <td>
-              <router-link :to="'/admin-edit/' + product._id">
+              <router-link :to="'/admin-edit-product/' + product._id">
                 <img src="../../assets/edit.png" class="admin-icons">
               </router-link>
             </td>
@@ -30,6 +30,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="input-group new-button">
+        <button class="button" @click.prevent="addProduct()">Add a Product</button>
+      </div>
     </div>
   </div>
 </template>
@@ -50,6 +53,9 @@ export default {
     ]),
     deleteProduct (id) {
       this.removeProduct(id);
+    },
+    addProduct () {
+      this.$router.push({ name: 'admin-create-product' });
     },
   },
   created () {

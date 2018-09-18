@@ -15,8 +15,9 @@
         <li>
           <a>Admin <i class="material-icons">arrow_drop_down</i></a>
           <ul>
-            <li><router-link active-class="active" :to='"/admin-create"'>New</router-link></li>
-            <li><router-link active-class="active" :to='"/admin-products"'>Product List</router-link></li>
+            <li><router-link active-class="active" :to='"/admin-create-product"'>New</router-link></li>
+            <li><router-link active-class="active" :to='"/admin-products"'>Products List</router-link></li>
+            <li><router-link active-class="active" :to='"/admin-manufacturers"'>Manufacturers List</router-link></li>
           </ul>
         </li>
         <li><router-link active-class="active" :to='"/cart"'>Cart</router-link></li>
