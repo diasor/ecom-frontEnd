@@ -60,7 +60,7 @@ export default {
   },
   created () {
     this.getAllProducts()
-      .catch(err => console.log('ERROR ', err));
+      .catch(error => console.log('ERROR getting all products.', error));
   },
 };
 </script>

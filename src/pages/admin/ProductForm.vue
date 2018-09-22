@@ -38,7 +38,6 @@
               <label>Image {{ item.imageName }} </label>
               <button class="uploadButton">Upload a file</button>
               <input type="file" name="productImageFile" @change="onFileChanged" />
-              <!-- <input type="file" @change="onFileChanged" placeholder="Product Image" name="image" class="form-control inputfile"> -->
             </div>
 
           </div>

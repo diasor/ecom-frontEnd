@@ -1,7 +1,7 @@
 <template>
   <div class="products">
     <div class="product-container">
-      <div v-for="productItem in products" :key="productItem._id">
+      <div v-for="productItem in products" :key="productItem.product_id">
         <product-item :product="productItem"></product-item>
       </div>
     </div>
@@ -22,6 +22,7 @@ export default {
     ...mapState({
       products: state => state.productsState.products,
       manufacturers: state => state.manufacturersState.manufacturers,
+      cart: state => state.cartState.cart,
     }),
   },
   methods: {
@@ -31,14 +32,20 @@ export default {
     ...mapActions('manufacturersState', [
       'getAllManufacturers',
     ]),
+    ...mapActions('cartState', [
+      'getCart',
+    ]),
   },
   created () {
     if ((isEmpty(this.manufacturers)) || (this.manufacturers.length === 0)) {
       this.getAllManufacturers()
-        .catch(err => console.log('ERROR ', err));
+        .catch(error => console.log('ERROR loading the Manufacturers', error));
     }
     this.getAllProducts()
-      .catch(err => console.log('ERROR ', err));
+      .catch(error => console.log('ERROR loading the Products', error));
+
+    this.getCart('false')
+      .catch(error => console.log('ERROR loading the Cart ', error));
   },
 };
 </script>

@@ -48,7 +48,6 @@ const actions = {
       .catch(err => console.log('ERROR adding a manufacturer: ', err));
   },
   updateManufacturer ({ commit }, manufacturer) {
-    console.log('updateManufacturer from manufacturersState.js');
     commit(mutationTypes.UPDATE_MANUFACTURER);
     return manufacturersStateApi.updateManufacturer(manufacturer)
       .then(response => {

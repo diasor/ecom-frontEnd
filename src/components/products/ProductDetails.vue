@@ -1,6 +1,5 @@
 <template>
   <div class="product-detail-row">
-    aca
     <div class="l4 m4 s6 s12 col-left">
       <img class="product-details-image" :src="imagePath" @error="imageNotFound()" alt="">
     </div>
@@ -10,7 +9,7 @@
       <p class="product-details-description"> {{product.description}} </p>
       <div class="product-detail-row">
         <div class="col-left"><label class="product-details-price">${{product.price}}</label></div>
-        <div class="col-right"><product-button :product="product" ></product-button></div>
+        <product-button :product="product"></product-button>
       </div>
     </div>
     <div class="divider"></div>
@@ -22,9 +21,10 @@
 import ProductButton from './ProductButton';
 
 export default {
+  name: 'ProductDetails',
   props: ['product'],
   components: {
-    'product-button': ProductButton,
+    productButton: ProductButton,
   },
   data: () => ({
     imagePath: '',
