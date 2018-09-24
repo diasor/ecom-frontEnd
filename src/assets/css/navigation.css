@@ -35,6 +35,27 @@
 /****************************************
               Menu styles
 *****************************************/
+.menu-row {
+  display: flex;
+  flex-direction: row;
+  > div {
+    margin: 0;
+    display: inline-block;
+    text-align: right;
+  }
+  .col-right {
+    position: absolute;
+    /* right: 3rem; */
+    right:3rem;
+    width: 20%;
+
+  }
+  .col {
+    margin-top: 0;
+    width: 80%;
+  }
+}
+
 #menu-top  {
   float: none;
   margin: 0;
@@ -54,6 +75,10 @@
   background-color: #0C233C;
   background-image: linear-gradient(#2B4B6F, #0C233C);
   border-radius: 5px;
+}
+
+#menu-right ul li {
+  float: right;
 }
 
 #menu li {
@@ -81,6 +106,9 @@
   color: #fafafa;
 }
 
+#menu li:hover {
+  color: #fafafa;
+}
 *html #menu li a:hover { /* IE6 */
   color: #fafafa;
 }
@@ -99,9 +127,6 @@
   top: 35px;
   left: 0;
   z-index: 99999;
-  /* verde
-  background-color: #236A62;
-  background-image: linear-gradient(#444, #236A62); */
   background-color: #567DA2;
   background-image: linear-gradient(#2B4B6F, #567DA2);
   -moz-border-radius: 5px;
@@ -197,4 +222,10 @@
 
 #menu ul li:first-child a:hover:after {
   border-bottom-color: #04acec;
+}
+
+.menu-icons {
+  max-width: 35px;
+  max-height: 35px;
+
 }

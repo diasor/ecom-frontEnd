@@ -26,7 +26,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'linebreak-style': 0,
-    'max-len': ['error', { 'code': 200 }],
+    'max-len': ['error', { 'code': 500 }],
     'no-console':0,
     // don't require .vue extension when importing
     'import/extensions': ['error', 'always', {
@@ -40,7 +40,8 @@ module.exports = {
       ignorePropertyModificationsFor: [
         'state', // for vuex state
         'acc', // for reduce accumulators
-        'e' // for e.returnvalue
+        'e', // for e.returnvalue
+        'Vue'
       ]
     }],
     // allow optionalDependencies
