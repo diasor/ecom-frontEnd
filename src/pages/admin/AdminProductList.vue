@@ -13,17 +13,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products" :key="product._id">
+          <tr v-for="product in products" :key="product.product_id">
             <td>{{product.name}}</td>
             <td>${{product.price}}</td>
             <td>{{product.manufacturer.name}}</td>
             <td>
-              <router-link :to="'/admin-edit-product/' + product._id">
+              <router-link :to="'/admin-edit-product/' + product.product_id">
                 <img src="../../assets/edit.png" class="admin-icons">
               </router-link>
             </td>
             <td>
-              <a @click="deleteProduct(product._id)">
+              <a @click="deleteProduct(product.product_id)">
                 <img src="../../assets/delete.png" class="admin-icons">
               </a>
             </td>

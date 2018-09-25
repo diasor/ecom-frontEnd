@@ -25,14 +25,12 @@
               Table Grid Styles
 *****************************************/
 .admin-table {
-  /* border: solid 1px #0C233C; */
   border-collapse: collapse;
   border-spacing: 0.5rem;
   width: 100%;
 
   /* fonts */
   font-family: 'Salsa';
-  font-size: 1.5rem;
   color: #0C233C;
   text-align: left;
 }
@@ -43,6 +41,15 @@
 .admin-table thead th:last-child {
   border-radius: 0 10px 0 0;
 }
+
+/*  Responsive table fonts */
+@media screen and (max-width: 639px) {
+  .admin-table th { font-size: 1.2rem; }
+}
+@media screen and (min-width:640px) {
+  .admin-table th { font-size:1.5rem; }
+}
+
 table th {
   font-size: 2rem;
   font-weight: bold;
