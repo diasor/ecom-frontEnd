@@ -1,17 +1,9 @@
 <template>
-    <div id="menu-top">
-      <div class="navigation-row">
-        <div class="col">
-          <label class="navigation-title">e-Commerce</label>
-        </div>
-        <div class="col-right">
-            <img class="navigation-logo" src='../assets/OnlineShoppingLogo.png'/>
-        </div>
-      </div>
+    <div class="menu-top">
+      <div class="navigation-row"><label class="navigation-title">e-Commerce</label></div>
       <div class="menu-row">
-        <div class="col">
-          <ul id="menu">
-            <!-- Display regular links -->
+        <ul class="menu">
+          <div class="col-left">
             <li><router-link active-class="active" :to='"/"'>Home</router-link></li>
             <!-- Admin's drop down menu -->
             <li>
@@ -22,23 +14,18 @@
                 <li><router-link active-class="active" :to='"/admin-manufacturers"'>Manufacturers List</router-link></li>
               </ul>
             </li>
-            <!-- User's drop down menu -->
             <li><router-link active-class="active" :to='"/cart"'>Cart</router-link></li>
-          </ul>
-        </div>
-        <div class="col-right">
-          <ul id="menu">
+          </div>
+          <div class="col-right">
+            <!-- User's drop down menu -->
             <li v-if="isUserLogged">
               <a>{{ userName }} <i class="material-icons">arrow_drop_down</i></a>
               <ul>
                 <li><a active-class="active" @click="logout()">LogOut</a></li>
               </ul>
             </li>
-            <li v-if="!isUserLogged">
-              <a>Login</a>
-            </li>
+          </div>
         </ul>
-      </div>
       </div>
     </div>
 </template>
@@ -66,11 +53,9 @@ export default {
       return '';
     },
     userLogged () {
-      // return ((!isEmpty(this.user)) && (!isEmpty(this.user.nickname)));
       return ((!isEmpty(this.$auth.user)) && (!isEmpty(this.$auth.user.nickname)));
     },
     logout () {
-      console.log('logout aca');
       this.$auth.logout();
     },
   },
