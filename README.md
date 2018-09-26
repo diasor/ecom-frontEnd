@@ -5,7 +5,7 @@ Produce a simple web-app frontend as a code sample for an e-commerce system.
 DOCUMENTATION
 =============
 
-All the required documentation can be found in this file: [documentation](./doc/eCommerce Code Sample.pdf)
+All the required documentation can be found in this file: [documentation](https://github.com/diasor/ecom-frontEnd/tree/responsive/doc)
 
 ## e-commerce Build Setup
 
