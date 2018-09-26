@@ -1,3 +1,12 @@
+Goal
+====
+Produce a simple web-app frontend as a code sample for an e-commerce system.
+
+DOCUMENTATION
+=============
+
+All the required documentation can be found in this file: [documentation](eCommerce Code Sample.pdf)
+
 # e-commerce
 
 > e-commerce
@@ -17,5 +26,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
