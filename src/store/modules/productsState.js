@@ -1,3 +1,4 @@
+import { isEmpty } from 'lodash';
 import productsStateApi from '../api/productsStateApi';
 
 // Products' state
@@ -24,15 +25,15 @@ const mutationTypes = {
 
 // Products' actions
 const actions = {
-  // All products
+  // get all products from the backend
   getAllProducts ({ commit }) {
     commit(mutationTypes.ALL_PRODUCTS);
-    // Fetch actual products from the API
+    // fetch actual products from the API
     return productsStateApi.getAllProducts()
       .then(response => {
         commit(mutationTypes.ALL_PRODUCTS_SUCCESS, response.data);
       })
-      .catch(err => console.log('ERR at getAllProducts ', err));
+      .catch(error => console.log('ERROR at getAllProducts ', error));
   },
   // Get Product by ID
   getProductById ({ commit }, id) {
@@ -129,11 +130,11 @@ const getters = {
   allProducts: state => state.products,
 
   // Get Product by ID
-  productById: (state, getters) => id => {
-    if (getters.allProducts.length > 0) {
-      return getters.allProducts.filter(p => p._id === id)[0];
+  productById: (state) => (id) => {
+    if ((!isEmpty(state.products)) && (state.products.length > 0)) {
+      return state.products.filter(p => p.product_id === id)[0];
     }
-    return state.productDashboard.product;
+    return state.product;
   },
 };
 

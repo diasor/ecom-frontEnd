@@ -18,29 +18,65 @@
 </template>
 
 <script>
+import { isEmpty } from 'lodash';
+import { mapState, mapGetters, mapActions } from 'vuex';
 import ProductButton from './ProductButton';
 
 export default {
   name: 'ProductDetails',
-  props: ['product'],
   components: {
     productButton: ProductButton,
   },
+  props: ['productId'],
   data: () => ({
+    product: {},
     imagePath: '',
     productName: '',
   }),
+  computed: {
+    ...mapState({
+      stateProduct: state => state.productsState.product,
+    }),
+    ...mapGetters('productsState', [
+      'productById',
+    ]),
+  },
   methods: {
+    ...mapActions('productsState', [
+      'getProductById',
+    ]),
     imageNotFound () {
       this.imagePath = '/static/productImages/NotAvailable.jpeg';
     },
+    fetchProduct (callback) {
+      // first search the product in the store
+      this.product = this.productById(this.productId);
+      if ((isEmpty(this.product)) || (isEmpty(this.product.name))) {
+        // if the product is not found in the store, then get it from the API
+        this.getProductById(this.productId)
+          .then(() => {
+            this.product = Object.assign({}, this.stateProduct);
+            callback(undefined, this.product);
+          })
+          .catch(error => {
+            console.log(`ERROR getting the product: ${error}`);
+            callback(error);
+            // this.displayModal(true, 'ERROR', description, false);
+          });
+      } else callback(undefined, this.product);
+    },
   },
   created () {
-    this.imagePath = `data:image/jpeg;base64,${this.product.image}`;
-    if (this.product.name.length > 19) {
-      const shortName = this.product.name.substr(0, 18);
-      this.productName = `${shortName}...`;
-    } else this.productName = this.product.name;
+    this.fetchProduct((error) => {
+      if (error) console.log(`ERROR getting the product: ${error}`);
+      else if (!isEmpty(this.product)) {
+        this.imagePath = `data:image/jpeg;base64,${this.product.image}`;
+        if ((!isEmpty(this.product.name)) && (this.product.name.length > 19)) {
+          const shortName = this.product.name.substr(0, 18);
+          this.productName = `${shortName}...`;
+        } else this.productName = this.product.name;
+      }
+    });
   },
 };
 </script>

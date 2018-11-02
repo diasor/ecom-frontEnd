@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <product-details :product="product" :isAdding="true"></product-details>
+  <div class="product-detail-container">
+    <product-details :productId="productId" :isAdding="true"></product-details>
   </div>
-
 </template>
 
 <script>
@@ -13,15 +12,11 @@ export default {
   components: {
     'product-details': ProductDetails,
   },
-  computed: {
-    product () {
-      return this.$store.getters.productById(this.$route.params.id);
-    },
-  },
+  data: () => ({
+    productId: '',
+  }),
   created () {
-    if (!this.product.name) {
-      this.$store.dispatch('productById', this.$route.params.id);
-    }
+    this.productId = this.$route.params.id;
   },
 };
 </script>

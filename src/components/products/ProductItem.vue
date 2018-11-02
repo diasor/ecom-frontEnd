@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col l3 m4 s6 xs12">
       <div class="product">
-        <router-link :to="'/details/' + product.product_id" class="product-link"> <!-- rever outerlink -->
+        <router-link :to="'/details/' + product.product_id" class="product-link">
           <div class="product-image">
             <img class="img-responsive" :src="imagePath" @error="imageNotFound()" alt="">
           </div>

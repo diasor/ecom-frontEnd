@@ -4,7 +4,7 @@
       <div v-if="!cartIsEmpty" class="title">
         <h1>Your Cart</h1>
         <template v-for="item in cartItems">
-          <product-details :product="item" :key="item.product_id"></product-details>
+          <product-details :productId="item.product_id" :key="item.product_id"></product-details>
         </template>
         <button class="button" @click="emptyCart()">Empty Cart</button>
       </div>

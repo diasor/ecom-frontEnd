@@ -26,7 +26,7 @@ const router = new Router({
     { name: 'admin-create-manufacturer', path: '/admin-create-manufacturer/', component: ManufacturerForm },
     { name: 'admin-edit-manufacturer', path: '/admin-edit-manufacturer/:id', component: ManufacturerForm },
     { name: 'cart', path: '/cart', component: Cart },
-    { name: 'details', path: '/details/:id', component: Details },
+    { name: 'details', path: '/details/:id', props: true, component: Details },
   ],
 });
 

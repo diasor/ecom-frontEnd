@@ -39,7 +39,6 @@
               <button class="uploadButton">Upload a file</button>
               <input type="file" name="productImageFile" @change="onFileChanged" />
             </div>
-
           </div>
           <div class="input-group">
             <label>Description</label>
