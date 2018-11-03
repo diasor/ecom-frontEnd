@@ -37,7 +37,7 @@
             <div class="upload-btn-wrapper">
               <label>Image {{ item.imageName }} </label>
               <button class="uploadButton">Upload a file</button>
-              <input type="file" name="productImageFile" @change="onFileChanged" />
+              <input type="file" name="productImageFile" @change.prevent="onFileChanged" class="uploadInput"/>
             </div>
           </div>
           <div class="input-group">
@@ -198,7 +198,7 @@ export default {
         .then(() => {
           this.item = Object.assign({}, this.product);
           this.productManufacturer = {
-            _id: this.item.manufacturer._id,
+            _id: this.item.manufacturer.id,
             name: this.item.manufacturer.name,
           };
         })

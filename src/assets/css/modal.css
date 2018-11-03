@@ -9,53 +9,78 @@
 .modal {
   display: block;
   position: fixed;
-  top:4rem;
+  top:10rem;
   left: 0;
   right: 0;
-  background-color: #e6e9ea;
+  /* background-color: #e6e9ea; */
+  background-color:#B0B0B0;
   padding: 0;
   max-height: 70%;
-  width: 55%;
+  max-width: 40%;
   margin: auto;
   overflow-y: auto;
   z-index:1000;
-  border-radius: 3px;
+  /* border-radius: 5px; */
+  border: 3px solid grey;
+  border-radius: 10px;
+}
+.modal-title-container {
+  /* title rectangle */
+  padding: 0.666rem;
+  background: #680B0B;
+  border-radius: 5px;
+}
 
-  h1,h2,h3,h4 {
-    margin-top: 0;
-  }
+.modal-title {
+  /* title label*/
+  font-family: 'Salsa';
+  font-size: 1.6rem;
+  /*    font-weight: bold; */
+  color:#D1B1B1;
+}
+.modal-content {
+  padding: 1rem;
+  font-family: 'Salsa';
+  font-size: 1.3rem;
+}
+.modal-close {
+  cursor: pointer;
+}
 
-  .modal-content {
-    padding: 1rem;
-  }
-  .modal-close {
-    cursor: pointer;
-  }
+.modal-footer {
+  border-radius: 0 0 2px 2px;
+  background-color:#B0B0B0;
+  padding: 0 1rem 1rem;
+  /* width: 100%; */
+  display: inline-block;
 
-  .modal-footer {
-    border-radius: 0 0 2px 2px;
-    background-color: #e6e9ea;
-    padding: 0 1rem 1rem;
-    width: 100%;
-    display: inline-block;
-
-    .btn {
-      float: left;
-      margin: 0 3px;
-      min-width: 120px;
-    }
+  .btn {
+    /* float: left; */
+    margin: 0 3px;
+    /* min-width: 120px; */
+    background: #680B0B;
+    border: 1px solid #680B0B;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin:0.222rem;
+    text-transform: uppercase;
+    font-size: 11px;
+    transition: all 200ms ease-out;
+    outline: none;
+    color:#D1B1B1;
   }
 }
+
 .lean-overlay {
   position: fixed;
   z-index:999;
   top: -100px;
-  left: 0;
+  /* left: 0;
   bottom: 0;
-  right: 0;
-  height: 125%;
-  width: 100%;
-  background: #000;
+  right: 0; */
+  /* height: 125%;
+  width: 100%; */
+  /* background: #000; */
   opacity: 0.4;
 }
 
@@ -68,7 +93,7 @@
     position: absolute;
     height: calc(100% - 56px);
     max-height: 100%;
-    width: 100%;
+    /* width: 100%; */
     overflow-y: auto;
   }
 

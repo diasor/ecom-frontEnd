@@ -114,6 +114,9 @@
   font-family: 'Salsa';
   font-size: 1.5rem;
 }
+.uploadInput {
+  width: 30rem;
+}
 
 .upload-btn-wrapper input[type=file] {
   position: absolute;
